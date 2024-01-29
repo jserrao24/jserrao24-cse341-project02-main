@@ -1,0 +1,4 @@
+node_modules
+.env
+artists.json
+songs.json
