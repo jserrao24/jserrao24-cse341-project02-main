@@ -39,7 +39,7 @@ const createArtist = async (req, res) => {
     genre: req.body.genre
   };
   try {
-    const response = await mongodb.getDatabase().db().collection('artists').insertOne(artist);
+    const response = await mongodb.getDatabase().db('artists').collection('artists').insertOne(artist);
     if (response.acknowledged) {
       console.log(response.insertedId);
       res.status(201).json(response);
