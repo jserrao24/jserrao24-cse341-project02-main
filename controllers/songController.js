@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 const getAll = async (req, res) => {
     //#swagger.tags = ['Songs']
   try {
-    const result = await mongodb.getDatabase().db().collection('songs').find();
+    const result = await mongodb.getDatabase().db("songs").collection('songs').find();
     result.toArray().then((songs) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(songs);
@@ -32,7 +32,7 @@ const getById = async (req, res) => {
   //#swagger.tags = ['Songs']
   if (ObjectId.isValid(req.params.id)) {
     const songId = new ObjectId(req.params.id);
-    const result = await mongodb.getDatabase().db().collection('songs').find({ _id: songId });
+    const result = await mongodb.getDatabase().db("songs").collection('songs').find({ _id: songId });
     try {
       result.toArray().then((songs) => {
           res.setHeader('Content-Type', 'application/json');
@@ -54,7 +54,7 @@ const createSong = async (req, res) => {
     releaseDate: req.body.releaseDate,
   };
   try {
-    const response = await mongodb.getDatabase().db().collection('songs').insertOne(song);
+    const response = await mongodb.getDatabase().db("songs").collection('songs').insertOne(song);
     if (response.acknowledged) {
       console.log(response.insertedId);
       res.status(201).json(response);
