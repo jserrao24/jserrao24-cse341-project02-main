@@ -6,7 +6,7 @@ const doc = {
     description: 'Songs API',
     version: '1.0.0',
   },
-  host: 'jserrao24-cse341-contacts-project-main.onrender.com', 
+  host: 'localhost:5000', 
   schemes: ['http', 'https'],
 };
 
