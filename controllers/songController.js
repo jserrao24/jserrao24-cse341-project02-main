@@ -90,7 +90,7 @@ const deleteSong = async (req, res) => {
     const songId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db('songs').collection('songs').deleteOne({ _id: songId });
     if (response.deletedCount > 0) {
-      res.status(200).json(repsonse);
+      res.status(200).json(response);
     } else {
         res.status(500).json(response.error || 'Some error occurred while deleting the song');
     }
