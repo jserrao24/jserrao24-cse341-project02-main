@@ -88,7 +88,7 @@ const deleteSong = async (req, res) => {
   //#swagger.tags = ['Songs']
   if (ObjectId.isValid(req.params.id)) {
     const songId = new ObjectId(req.params.id);
-    const response = await mongodb.getDatabase().db().collection('songs').deleteOne({ _id: songId });
+    const response = await mongodb.getDatabase().db('songs').collection('songs').deleteOne({ _id: songId });
     if (response.deletedCount > 0) {
       res.status(200).json(repsonse);
     } else {
